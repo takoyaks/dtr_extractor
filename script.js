@@ -38,7 +38,7 @@ function renderTableFromRaw(lines) {
   });
 
   for (let i = 1; i <= 31; i++) {
-    const day = String(i).padStart(2, '');
+    const day = String(i).padStart(2, '0');
     let amIn = '', amOut = '', pmIn = '', pmOut = '';
 
     if (grouped[day]) {
