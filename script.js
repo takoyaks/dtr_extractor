@@ -37,21 +37,21 @@ function renderTableFromRaw(lines) {
     grouped[day].push({ timeIn, timeOut });
   });
 
-  for (let i = 1; i <= 31; i++) {
-    const day = String(i).padStart(2, '0');
+for (let i = 1; i <= 31; i++) {
+    const day = String(i);
     let amIn = '', amOut = '', pmIn = '', pmOut = '';
 
-    if (grouped[day]) {
-      const times = grouped[day];
-      if (times.length === 1) {
-        amIn = times[0].timeIn;
-        amOut = times[0].timeOut;
-      } else if (times.length >= 2) {
-        amIn = times[0].timeIn;
-        amOut = times[0].timeOut;
-        pmIn = times[1].timeIn;
-        pmOut = times[1].timeOut;
-      }
+    if (grouped[day.padStart(2, '0')]) { 
+        const times = grouped[day.padStart(2, '0')];
+        if (times.length === 1) {
+            amIn = times[0].timeIn;
+            amOut = times[0].timeOut;
+        } else if (times.length >= 2) {
+            amIn = times[0].timeIn;
+            amOut = times[0].timeOut;
+            pmIn = times[1].timeIn;
+            pmOut = times[1].timeOut;
+        }
     }
 
     formattedData.push([day, amIn, amOut, pmIn, pmOut]);
