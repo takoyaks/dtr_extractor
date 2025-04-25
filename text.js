@@ -35,3 +35,20 @@ if (tableText) {
         }
     });
 }
+
+
+
+// merge cell
+
+const row = document.querySelector("#row1");
+  const cells = row.querySelectorAll("td");
+
+  // Merge the first three cells
+  cells[1].colSpan = 3;
+  cells[1].textContent = `${cells[1].textContent} ${cells[2].textContent} ${cells[3].textContent} ${cells[4].textContent}`;
+
+  // Remove the now-redundant cells
+  cells[2].remove();
+  cells[3].remove();
+  cells[4].remove();
+
