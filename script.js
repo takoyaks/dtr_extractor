@@ -17,7 +17,7 @@ function convertTo12Hour(time, period) {
   let [hour, minute] = time.split(":").map(Number);
   if (period.toLowerCase() === "pm" && hour < 12) hour += 12;
   if (period.toLowerCase() === "am" && hour === 12) hour = 0;
-  return `${hour > 12 ? hour - 12 : hour || 12}:${String(minute).padStart(2, '0')}`;
+  return `${String(hour > 12 ? hour - 12 : hour || 12).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
 }
 
 function renderTableFromRaw(lines) {
